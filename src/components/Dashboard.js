@@ -14,7 +14,7 @@ class Dashboard extends React.Component {
         this.setState({ rows: [...this.state.rows, newRow] });
     };
 
-    onDelRow = (id) => {
+    onDelRow = id => {
         this.setState({
             rows: this.state.rows.filter(row => row.id !== id)
         });
@@ -26,10 +26,10 @@ class Dashboard extends React.Component {
         });
         return (
             <div>
-                <div>
-                    <button onClick={this.onAddRow}>Add Row</button>
-                </div>
                 <div className="ui segments">{renderedList}</div>
+                <button className="fluid ui button" onClick={this.onAddRow}>
+                    <i className="plus icon" />
+                </button>
             </div>
         );
     }

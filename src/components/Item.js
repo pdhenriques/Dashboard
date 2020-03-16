@@ -1,3 +1,4 @@
+import './Item.css';
 import React from "react";
 import Widget from "./Widget";
 
@@ -8,17 +9,17 @@ class Item extends React.Component {
 
     render() {
         return (
-            <div className="item">
+            <div className="myItem item">
                 <Widget />
-                <div>
-                    <button onClick={() => this.props.onDelItem(this.state.id)}>
-                        Remove Item
-                    </button>
-                </div>
+                <button
+                    className="myItem-close-button ui icon button"
+                    onClick={() => this.props.onDelItem(this.state.id)}
+                >
+                    <i className="times icon"></i>
+                </button>
             </div>
         );
     }
 }
-
 
 export default Item;
