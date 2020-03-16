@@ -1,5 +1,6 @@
 import "./Row.css";
 import React from "react";
+import { uuidv4 } from "../helperFunctions";
 import Item from "./Item";
 import RowContextMenu from "./RowContextMenu";
 
@@ -11,7 +12,8 @@ class Row extends React.Component {
 
     onAddItem = (widgetId) => {
         const newItem = {
-            id: this.uuidv4()
+            id: uuidv4(),
+            widgetID: widgetId
         };
         this.setState({ items: [...this.state.items, newItem] });
     };
@@ -40,15 +42,6 @@ class Row extends React.Component {
         );
     }
 
-    uuidv4() {
-        return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(
-            c
-        ) {
-            var r = (Math.random() * 16) | 0,
-                v = c == "x" ? r : (r & 0x3) | 0x8;
-            return v.toString(16);
-        });
-    }
 }
 
 export default Row;

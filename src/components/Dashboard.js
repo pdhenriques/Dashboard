@@ -1,4 +1,5 @@
 import React from "react";
+import { uuidv4 } from "../helperFunctions";
 import Row from "./Row";
 
 class Dashboard extends React.Component {
@@ -6,9 +7,13 @@ class Dashboard extends React.Component {
         rows: []
     };
 
+    componentDidMount = () => {
+        this.onAddRow();
+    }
+
     onAddRow = () => {
         const newRow = {
-            id: this.uuidv4(),
+            id: uuidv4(),
             items: []
         };
         this.setState({ rows: [...this.state.rows, newRow] });
@@ -34,15 +39,6 @@ class Dashboard extends React.Component {
         );
     }
 
-    uuidv4() {
-        return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(
-            c
-        ) {
-            var r = (Math.random() * 16) | 0,
-                v = c == "x" ? r : (r & 0x3) | 0x8;
-            return v.toString(16);
-        });
-    }
 }
 
 export default Dashboard;
