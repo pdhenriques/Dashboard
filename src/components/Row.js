@@ -1,6 +1,7 @@
-import './Row.css';
+import "./Row.css";
 import React from "react";
 import Item from "./Item";
+import RowContextMenu from "./RowContextMenu";
 
 class Row extends React.Component {
     state = {
@@ -8,7 +9,7 @@ class Row extends React.Component {
         items: []
     };
 
-    onAddItem = () => {
+    onAddItem = (widgetId) => {
         const newItem = {
             id: this.uuidv4()
         };
@@ -29,20 +30,11 @@ class Row extends React.Component {
         });
         return (
             <div className="ui clearing segment">
-                <div>
-                    <button
-                        className="ui icon right floated button"
-                        onClick={() => this.props.onDelRow(this.state.id)}
-                    >
-                        <i className="times icon"></i>
-                    </button>
-                </div>
-                <br />
+                <RowContextMenu onAddItem={this.onAddItem} onDelRow={() =>
+                        this.props.onDelRow(this.state.id)
+                    }/>
                 <div className="ui horizontal grid">
                     {renderedList}
-                    <button className="myRow-add-button ui icon button" onClick={this.onAddItem}>
-                        <i className="plus icon"></i>
-                    </button>
                 </div>
             </div>
         );
