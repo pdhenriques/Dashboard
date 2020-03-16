@@ -4,6 +4,10 @@
 
 .myItem-close-button {
     position: absolute;
-    top: 30px;
+    top: 55px;
     left: 45px; 
+}
+
+.myItem-title {
+    position: relative;
 }
