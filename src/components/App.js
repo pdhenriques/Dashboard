@@ -1,17 +1,17 @@
 import React from "react";
 import "./App.css";
-import Widget from "./Widget";
+import Dashboard from "./Dashboard";
 
-const App = () => {
-    return (
-        <div className="ui relaxed grid">
-            <Widget />
-            <Widget />
-            <Widget />
-            <Widget />
-            <Widget />
-        </div>
-    );
-};
+
+class App extends React.Component {
+
+    render() {
+        return (
+            <div className="ui segment">
+                <Dashboard />
+            </div>
+        );
+    }
+}
 
 export default App;

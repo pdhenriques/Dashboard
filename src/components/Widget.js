@@ -12,7 +12,7 @@ import {
 } from "recharts";
 import rawData from "../data/rawData";
 
-const widget = props => {
+const Widget = props => {
     const data = rawData.points.map(point => {
         return { time: point[0], value: point[1] };
     });
@@ -54,4 +54,4 @@ const widget = props => {
     );
 };
 
-export default widget;
+export default Widget;
